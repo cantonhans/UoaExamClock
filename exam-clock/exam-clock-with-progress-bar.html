@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Clock with Progress Bar</title>
+    <link rel="stylesheet" href="./exam-clock-with-progress-bar.css" />
+  </head>
+  <body>
+    <div class="header">
+      <img class="logo" src="assets/uoa-logo.svg" />
+      <div class="texts-on-header">
+        <h1 id="exam-duration-text"></h1>
+        <h1 id="exam-time-state-text"></h1>
+      </div>
+      <button id="back-button" onclick="backButtonClick()">
+        <svg
+          class="chevron-left"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path
+            fill="currentColor"
+            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          />
+        </svg>
+        Back
+      </button>
+      <button id="pause-button" onclick="pauseButtonClick()">Pause</button>
+      <button id="reset-button" onclick="resetTimerButtonClick()">Reset</button>
+    </div>
+
+    <div id="paused-display-message">
+      <h1 id="paused-display-title">Exam Paused</h1>
+      <div id="paused-time-elapsed-container">
+        <span>Time elapsed while paused:</span>
+        <span id="paused-time-elapsed">00:00</span>
+      </div>
+    </div>
+
+    <div class="analog-clock-container">
+      <div class="analog-clock">
+        <div class="hour-numbers"></div>
+        <div class="hands-container">
+          <div class="hands hour-hand"><i></i></div>
+          <div class="hands minute-hand"><i></i></div>
+          <div class="hands second-hand"><i></i></div>
+        </div>
+        <div class="seconds-bars"></div>
+      </div>
+    </div>
+
+    <div class="progress-bar-and-time-indicators">
+      <label id="progress-bar-start-label">Start</label>
+
+      <label id="progress-bar-finish-label">Finish</label>
+      <div id="time-indicator-bars"></div>
+      <div class="progress-bar">
+        <div class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <div class="countdown-time-and-text">
+      <h1 class="time-remaining-text">Time Remaining:</h1>
+      <h1 class="bold-time">00:00:00</h1>
+    </div>
+    <button id="start-button" onclick="startButtonClick()">Start Exam</button>
+
+    <div class="message" id="display-message"></div>
+
+    <div id="confirmation-modal">
+      <div class="modal-window">
+        <div id="modal-title"></div>
+        <div id="modal-message"></div>
+        <div id="button-set">
+          <button
+            class="modal-button cancel-button"
+            onclick="closeModalWindow(false)"
+          >
+            Cancel
+          </button>
+          <button
+            class="modal-button confirm-button"
+            onclick="closeModalWindow(true)"
+          >
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="add-to-remaining-box">
+      <div id="add-to-remaining-message">Add minutes to time remaining</div>
+      <div id="operators-resume-box">
+        <div id="add-to-remaining-operators">
+          <button class="button-for-input" onclick="updateInputValue(-1)">
+            -
+          </button>
+          <input id="time-to-add" type="text" oninput="validateInput()" />
+          <button class="button-for-input" onclick="updateInputValue(1)">
+            +
+          </button>
+        </div>
+        <button id="resume-button" onclick="resumeButtonClick()">Resume</button>
+      </div>
+    </div>
+
+    <script src="./progress-bar-interface.js"></script>
+    <script src="./time-keeping.js"></script>
+    <script src="./analog-clock.js"></script>
+    <script src="./progress-bar-design.js"></script>
+    <script
+      type="text/javascript"
+      src="pop_up_window/pop-up-window.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="pop_up_window/pop-up-window.css"
+    />
+  </body>
+</html>

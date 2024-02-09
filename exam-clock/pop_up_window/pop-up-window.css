@@ -1,0 +1,93 @@
+:root {
+  --color-primary: #00467f;
+  --color-secondary: #009ac7;
+  --color-tertiary: #8d9091;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  --font-size-title: 3rem;
+  --modal-space-3xs: 1px;
+  --modal-space-2xs: 3px;
+  --space-xs: 6px;
+  --modal-space-s: 9px;
+  --modal-space-l: 15px;
+  --modal-space-2xl: 20px;
+  --modal-space-3xl: 30px;
+  --modal-space-4xl: 40px;
+  --modal-space-5xl: 50px;
+  --modal-space-6xl: 60px;
+}
+
+#confirmation-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-window {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: var(--modal-space-2xl);
+  padding-top: var(--modal-space-3xl);
+  border: var(--modal-space-3xs) solid #888;
+  width: 35%;
+  text-align: center;
+}
+
+#modal-title {
+  color: var(--color-primary);
+  font-family: "Verdana";
+  font-size: var(--font-size-title);
+  font-weight: bold;
+  margin: var(--modal-space-2xl) 0;
+}
+
+#modal-message {
+  font-family: "Verdana";
+  font-size: var(--font-size-xxl);
+  margin-bottom: var(--modal-space-2xl);
+}
+
+#button-set {
+  margin: var(--modal-space-4xl) 0 var(--modal-space-3xl);
+}
+
+.modal-button {
+  padding: var(--modal-space-2xs) var(--modal-space-l);
+  width: 180px;
+  height: var(--modal-space-6xl);
+  text-align: center;
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+  font-family: "Verdana";
+  font-size: var(--font-size-xl);
+  border-radius: var(--modal-space-5xl);
+}
+
+.confirm-button {
+  background: var(--color-primary);
+}
+
+.cancel-button {
+  background: var(--color-tertiary);
+}
+
+.cancel-button:hover,
+.confirm-button:hover {
+  background: var(--color-secondary);
+  box-shadow: 0 var(--space-xs) var(--modal-space-s) rgba(0, 0, 0, 0.15);
+}
+
+.cancel-button:focus,
+.confirm-button:focus {
+  background: var(--color-secondary);
+  color: white;
+}

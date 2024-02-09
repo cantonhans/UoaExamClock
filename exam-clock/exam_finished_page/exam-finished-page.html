@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>University of Auckland Examination Clock</title>
+    <script src="../assets/header.js" type="text/javascript" defer></script>
+    <script src="exam-finished-page.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" type="text/css" href="exam-finished-page.css" />
+  </head>
+
+  <body>
+    <uoa-header></uoa-header>
+
+    <div class="message-box">
+      <div class="title">Exam Finished</div>
+      <div class="message">Please put your pen down and remain seated.</div>
+    </div>
+
+    <div class="buttons">
+      <button id="new-exam-button" class="new-exam-button" onclick="newExamButton()">New Exam</button>
+      <button id="reset-exam-button" class="reset-exam-button" onclick="resetExamButton()">
+        Reset Exam
+      </button>
+    </div>
+  </body>
+</html>

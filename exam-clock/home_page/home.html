@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>University of Auckland Examination Clock</title>
+    <script src="../assets/header.js" type="text/javascript" defer></script>
+    <script src="home.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" type="text/css" href="home.css">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <uoa-header></uoa-header>
+
+        <div class="title">
+            University of Auckland Examination Clock
+        </div>
+
+        <div class="intro-text">
+            Please select the appropriate exam period
+        </div>
+
+        <div class="exam-period-buttons">
+            <button id="two-hours" onclick="onClickHourButton('two-hour-text')">2 Hours</button>
+            <button id="three-hours" onclick="onClickHourButton('three-hour-text')">3 Hours</button>
+            <button id="custom-hours" onclick="onClickHourButton('custom-hour-text')">Custom</button>
+        </div>
+
+        <div id="two-hour-text" class="info-text">
+            <div class="exam-detail">
+                <div class="detail-label">Reading time:</div>
+                <div class="detail-value">10 minutes</div>
+            </div>
+            <div class="exam-detail">
+                <div class="detail-label">Writing time:</div>
+                <div class="detail-value">2 hours</div>
+            </div>
+            <div class="exam-detail">
+                <div class="detail-label">No leaving within the first:</div>
+                <div class="detail-value">1 hour 15 minutes</div>
+            </div>
+            <div class="exam-detail">
+                <div class="detail-label">or within the last:</div>
+                <div class="detail-value">15 minutes</div>
+            </div>
+            <button id="two-hour-confirm-button" class="confirm-button" onclick="confirmExam(ExamType.TWO_HOUR)">Confirm</button>
+        </div>
+
+        <div id="three-hour-text" class="info-text">
+            <div class="exam-detail">
+                <div class="detail-label">Reading time:</div>
+                <div class="detail-value">10 minutes</div>
+            </div>
+            <div class="exam-detail">
+                <div class="detail-label">Writing time:</div>
+                <div class="detail-value">3 hours</div>
+            </div>
+            <div class="exam-detail">
+                <div class="detail-label">No leaving within the first:</div>
+                <div class="detail-value">1 hour 45 minutes</div>
+            </div>
+            <div class="exam-detail">
+                <div class="detail-label">or within the last:</div>
+                <div class="detail-value">15 minutes</div>
+            </div>
+
+            <button id="three-hour-confirm-button" class="confirm-button" onclick="confirmExam(ExamType.THREE_HOUR)">Confirm</button>
+        </div>
+    </div>
+
+    <div id="custom-hour-text" class="info-text">
+        <div class="exam-detail">
+            <div class="detail-label">Reading time:</div>
+            <div class="detail-value">
+                <input id="reading-time" class="number-input" type="number" min="0" max="59"> minutes
+            </div>
+        </div>
+        <div class="error-message" id="reading-time-error">
+            <img class="error-image" src="../assets/error.svg"  >
+            Reading time must be less than 60 minutes
+        </div>
+    
+        <div class="exam-detail">
+            <div class="detail-label">Writing time:</div>
+            <div class="detail-value">
+                <input id="writing-hours" class="number-input" type="number"  min="0" max="9"> hour(s)
+                <input id="writing-minutes" class="number-input" type="number"  min="0" max="59"> minute(s)
+            </div>
+        </div>
+        <div class="error-message" id="writing-hours-error">
+            <img class="error-image" src="../assets/error.svg"  >
+            Writing hours must be less than 10 hours
+        </div>
+        <div class="error-message" id="writing-minutes-error">
+            <img class="error-image" src="../assets/error.svg" >
+            Writing minutes must be less than 60 minutes
+        </div>
+    
+        <div class="exam-detail">
+            <div class="detail-label">No leaving within the first:</div>
+            <div class="detail-value">
+                <input id="leave-start-time-hours" class="number-input" type="number"  min="0" max="9"> hour(s)
+                <input id="leave-start-time-minutes" class="number-input" type="number"  min="0" max="59"> minute(s)
+            </div>
+        </div>
+        <div class="error-message" id="leave-start-time-hours-error">
+            <img class="error-image" src="../assets/error.svg"  > Leaving time hours must be less than 10 hours
+        </div>
+        <div class="error-message" id="leave-start-time-minutes-error">
+            <img class="error-image" src="../assets/error.svg"  > Leaving time minutes must be less than 60 minutes
+        </div>
+    
+        <div class="exam-detail">
+            <div class="detail-label">or within the last:</div>
+            <div class="detail-value">
+                <input id="leave-end-time-minutes" class="number-input" type="number"  min="0" max="59"> minutes
+            </div>
+        </div>
+        <div class="error-message" id="leave-end-time-minutes-error">
+            <img class="error-image" src="../assets/error.svg"   > Leaving time minutes must be less than 60 minutes
+        </div>
+        <div class="error-message" id="leave-time-exceed-error">
+            <img class="error-image" src="../assets/error.svg"  > Leaving time cannot exceed writing time
+        </div>
+    
+        <button id="custom-confirm-button" class="confirm-button" onclick="confirmExam(ExamType.CUSTOM)">Confirm</button>
+        <div class="error-message" id="confirm-button-error">
+            <img class="error-image" src="../assets/error.svg" > Cannot click confirm until all inputs are valid
+        </div>
+    </div>
+    
+</body>
+
+</html>
